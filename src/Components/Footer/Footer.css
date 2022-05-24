@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.Footer_Container {
+    background-color: black;
+    width: 100%;
+}
+
+.Footer_Container .Footer_Content {
+    width: 65%;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+
+.Footer_Container .Footer_Content .Social_Link a {
+    text-decoration: none;
+}
+
+.Footer_Container .Footer_Content .Social_Link i {
+    color: white;
+    font-size: 30px;
+    margin-left: 15px;
+}
+
+.Footer_Container .Footer_Content .Orther_Link table{
+    margin-top: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.Footer_Container .Footer_Content .Orther_Link table tr td a {
+    text-decoration: none;
+    color: white;
+}
+
+.Footer_Container .Footer_Content .Orther_Link table tr {
+    height: 30px;
+}
+
+.Footer_Container .Footer_Content .Orther_Link table tr td a:hover {
+    text-decoration: underline;
+    color: whitesmoke;
+}
+
+.Footer_Container .Footer_Content .Orther_Link table tr button {
+    border: white solid 1px ;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.Footer_Container .Footer_Content .Orther_Link table tr button:hover {
+    color: red;
+}
+
+.Footer_Container .Footer_Content .Orther_Link table tr p{
+    color: white;
+    margin-top: 20px;
+}
+
+
+@media only screen and (width<740px){
+    .Footer_Container .Footer_Content .Orther_Link table tr button {
+        border: white solid 1px;
+        background-color: black;
+        color: white;
+        padding: 10px;
+        margin-top: 6px;
+        font-size: 9px;
+    }
+    .Footer_Container .Footer_Content .Social_Link i {
+        color: white;
+        font-size: 20px;
+        margin-left: 15px;
+    }
+    .Footer_Container {
+        
+        font-size: 8px;
+    }
+    .Footer_Container .Footer_Content {
+        padding-top: 25px;
+        width: 95%;
+    }
+}
+/*Tablet:width>=740px and width<1024px*/
+@media only screen and (width>=740px) and (width<1024px){
+    .Footer_Container .Footer_Content {
+        width: 95%;
+        
+    }
+}
+
+@media only screen and (width>=1024px){
+  
+}

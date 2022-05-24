@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.Big-Content {
+    height: 55px;
+    width: 100%;
+    background-color: #2a2a2a;
+    display:flex;
+    font-size: 15px;
+}
+
+.Big-Content .Logo {
+    height: 100%;
+    width: 3%;
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+.Big-Content .Logo img {
+    height: 100%;
+    width: 100%;
+}
+
+.Big-Content .Menu-List {
+    /* background-color: white; */
+    width: 75%;
+    padding-left: 20px;
+}
+
+.Big-Content .Menu-List ul li {
+    display: inline-block;
+    list-style: none;
+    padding: 15px;
+    color: rgb(164, 160, 160);
+    cursor: pointer;
+}
+
+.Big-Content .Menu-List ul li:hover {
+    border-bottom: blue solid 7px;
+    color: white;
+}
+
+.Big-Content .End-Menu {
+    height: 100%;
+    display: flex;
+    cursor: pointer;
+
+}
+.Big-Content .End-Menu i {
+    color: white;
+    font-size: 22px;
+    margin: 15px;
+    display: flex;
+}
+
+.Big-Content .End-Menu .SignIn  {
+    display: flex;
+}
+
+.Big-Content .End-Menu .SignIn p {
+    color: white;
+    font-size: 15px;
+    width: 5%;
+    margin: 15px 15px 15px 0px;
+}
+
+.Big-Content .End-Menu button {
+    padding: 15px 40px;
+    border: none;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    margin-right: 0px;
+}
+
+/*Mobile:width<740px*/
+@media only screen and (width<740px){
+    .Big-Content .Logo {
+        height: 80%;
+        width: 10%;
+        cursor: pointer;
+        padding-left: 10px;
+        margin-top: 5px;
+    }
+    .Big-Content .Menu-List {
+        display: none;
+    }
+    .Big-Content .End-Menu {
+        display: none;
+    }
+    .Big-Content .Mobi-Menu {
+        font-size: 45px;
+        color: white;
+        margin-left: 75%;
+    }
+
+}
+/*Tablet:width>=740px and width<1024px*/
+@media only screen and (width>=740px) and (width<1024px){
+    .Big-Content .Logo {
+        height: 80%;
+        width: 10%;
+        cursor: pointer;
+        padding-left: 10px;
+    }
+    .Big-Content .End-Menu i {
+        font-size: 22px;
+        margin: 15px;
+        display: flex;
+    }
+    .Big-Content .End-Menu .SignIn p {
+        display: none;
+    }
+
+    .Big-Content .Logo {
+        height: 80%;
+        width: 6%;
+        cursor: pointer;
+        padding-left: 10px;
+        padding-top: 5px;
+    }
+    .Big-Content .Mobi-Menu {
+        display: none;
+    }
+    
+}
+
+@media only screen and (width>=1024px){
+    .Big-Content .Mobi-Menu {
+        display: none;
+    }
+
+}
