@@ -100,8 +100,11 @@
     }
     
     .Big-Container .Second-Menu .Search i {
-        font-size: 37px;
+        /* font-size: 37px; */
         color: white;
+        position: relative;
+        top: 10px;
+        left: 15px;
     }
 
     .Big-Container .Achieverment-Game a {

@@ -10,7 +10,7 @@
 
 .Footer_Container .Footer_Content {
     width: 65%;
-    height: 100%;
+    height:360px;
     margin: 0 auto;
     padding-top: 50px;
 }
@@ -26,41 +26,38 @@
     margin-left: 15px;
 }
 
-.Footer_Container .Footer_Content .Orther_Link table{
-    margin-top: 5px;
+.Footer_Container .Footer_Content .Group_Name{
+    margin-top: 20px;
+    margin-bottom: 10px;
+ }
+ 
+ .Footer_Container .Footer_Content .Group_Name p {
+     color: rgba(255, 255, 255, 0.307);
+    
+ }
+ 
+
+.Footer_Container .Footer_Content .Orther_Link {
     width: 100%;
-    height: 100%;
+    display: flex;
+    flex-direction: row;
+
 }
 
-.Footer_Container .Footer_Content .Orther_Link table tr td a {
+.Footer_Container .Footer_Content .Orther_Link .Link_group {
+    display: flex;
+    flex-direction:  column;
+    padding-left: 20px;
+}
+ 
+
+.Footer_Container .Footer_Content .Orther_Link .Link_group a{
     text-decoration: none;
     color: white;
 }
 
-.Footer_Container .Footer_Content .Orther_Link table tr {
-    height: 30px;
-}
-
-.Footer_Container .Footer_Content .Orther_Link table tr td a:hover {
-    text-decoration: underline;
-    color: whitesmoke;
-}
-
-.Footer_Container .Footer_Content .Orther_Link table tr button {
-    border: white solid 1px ;
-    background-color: black;
-    color: white;
-    padding: 10px;
-    margin-top: 20px;
-}
-
-.Footer_Container .Footer_Content .Orther_Link table tr button:hover {
-    color: red;
-}
-
-.Footer_Container .Footer_Content .Orther_Link table tr p{
-    color: white;
-    margin-top: 20px;
+.Footer_Container .Footer_Content .Orther_Link .Link_group a:hover{
+    color: blue;
 }
 
 
@@ -78,10 +75,7 @@
         font-size: 20px;
         margin-left: 15px;
     }
-    .Footer_Container {
-        
-        font-size: 8px;
-    }
+    
     .Footer_Container .Footer_Content {
         padding-top: 25px;
         width: 95%;

@@ -12,36 +12,40 @@ const Footer = () => {
                 <a href=""><i class="ri-twitter-fill"></i></a>
                 <a href=""><i class="ri-youtube-fill"></i></a>
             </div>
+            <div className="Group_Name">
+                <p>Resources</p>
+            </div>
             <div className="Orther_Link">
-                <table>
-                    <tr>
-                        <td><a href="">Âm thanh  và phụ đề</a></td>
-                        <td><a href="">Mô tả âm thanh</a></td>
-                        <td><a href="">Trung tâm trợ giúp</a></td>
-                        <td><a href="">Thẻ quà tặng</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="">Trung tâm đa phương tiện</a></td>
-                        <td><a href="">Quan hệ với nhà đầu tư</a></td>
-                        <td><a href="">Thông báo pháp lý</a></td>
-                        <td><a href="">Điều khoản sử dụng</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="">Quyền riêng tư</a></td>
-                        <td><a href="">Âm thanh  và phụ đề</a></td>
-                        <td><a href="">Việc làm</a></td>
-                        <td><a href="">Thông tin doanh nghiệp</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="">Liên hệ với chúng tôi</a></td>
-                    </tr>
-                    <tr>
-                        <button>Mã dịch vụ</button>
-                    </tr>
-                    <tr>
-                        <p>Phuc Huynh</p>
-                    </tr>
-                </table>
+                <div className="Link_group">
+                    <a href="">Support-A-Creator</a>
+                    <a href="">Publish on Epic Games</a>
+                    <a href="">Careers</a>
+                    <a href="">Company</a>
+
+                </div>
+                <div className="Link_group">
+                    <a href="">Fan Art Policy</a>
+                    <a href="">UX Research</a>
+                    <a href="">Careers</a>
+                   
+                </div>
+                <div className="Link_group">
+                    <a href="">Online Services</a>
+                    <a href="">Community Rules</a>
+                    <a href="">Epic Newsroom</a>
+                </div>
+            </div>
+
+            <div className="Group_Name">
+                <p>Made By Phuc Huynh</p>
+            </div>
+            <div className="Orther_Link">
+                <div className="Link_group">
+                    <a href="https://github.com/huynhlephuc">Git Hub</a>
+                    <a href="">Base on Epic game</a>
+                    <a href="">Infinity Blade</a>
+                    <a href="">Shadow Complex</a>
+                </div>
             </div>
         </div>
     </div>

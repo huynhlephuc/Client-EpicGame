@@ -1,66 +1,125 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Sale.scss';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import axios from 'axios';
+
+/* const a = array.filter((e) =>{
+  return e.category.name = "Hot"
+ } )
+ 
+ console.log(a); */
+
 
 const Sales = () => {
-    const responsive = {
-        superLargeDesktop: {
-          // the naming can be any, depends on you.
-          breakpoint: { max: 4000, min: 3000 },
-          items: 4
-        },
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 5
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 4
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 2
-        }
-      };
+
+    /* get api sales */
+    const [games, setGames] = useState([]);
+    const [hots, setHot] = useState([]);
+    const [sales, setSale] = useState([]);
+    const [achis, setAchi] = useState([]);
+    const [updates, setUpdate] = useState([]);
+    const [populars, setPopular] = useState([]);
+    const [newgames, setNewgame] = useState([]);
+    const [editor, setEditor] = useState([]);
+    
+    useEffect( () => {
+      const getApi = async () => {
+          const getGames = await axios.get("https://server-epic-game.herokuapp.com/games");
+          /* const a = array.filter((e) =>{
+                return e.category.name = "Hot"
+              } )
+              
+              console.log(a); */
+
+          const HotGame = getGames.data.filter((e) => {
+            return e.category.name=="Hot"
+          });
+
+          const SaleGame = getGames.data.filter((e) => {
+            return e.category.name=="Sale"
+          });
+
+          const AchiGame = getGames.data.filter((e) => {
+            return e.category.name=="Achievements"
+          });
+
+          const UpdateGame = getGames.data.filter((e) => {
+            return e.category.name=="Recently Updated"
+          });
+
+          const PopularGame = getGames.data.filter((e) => {
+            return e.category.name=="Most Popular"
+          });
+
+          const NewGame = getGames.data.filter((e) => {
+            return e.category.name=="New To The Epic Games Store"
+          });
+
+          const editorGame = getGames.data.filter((e) => {
+            return e.category.name=="Editor's Picks"
+          });          
+
+          setGames(getGames.data);
+          ;
+          setAchi(AchiGame)
+          setEditor(editorGame);
+          setUpdate(UpdateGame);
+          setPopular(PopularGame);
+          setNewgame(NewGame);
+          setHot(HotGame);
+          setSale(SaleGame)
+          
+         
+      }
+      getApi();
+      console.log(games);
       
+    },[])
+    /* slider  */
+    const responsive = {
+      superLargeDesktop: {
+        // the naming can be any, depends on you.
+        breakpoint: { max: 4000, min: 3000 },
+        items: 4
+      },
+      desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 5
+      },
+      tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 4
+      },
+      mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 2
+      }
+    };
+
+    /* end slider */
+
+    
   return (
     <div className="Sale-Container">
         <div className="Sale-Product">
+
                 <Carousel responsive={responsive}>
-                    <div className="Film">
-                      <img src="https://thichlaviet.com/wp-content/uploads/2019/06/game-Megaman-X9.jpg" />
-                      <p>Game's name</p>
-                      <div className="price">
-                        <p>550.000</p>
-                        <span>-50%</span>
-                      </div>
+                {sales.map(function (sale) {
+                  return (
+                    <div className="Film" key={sale._id}>
+                    <img src={sale.image} />
+                    <p>{sale.name}</p>
+                    <div className="price">
+                      <p>{sale.price} $</p>
+                      <span>-{sale.salerate}</span>
                     </div>
-                    <div className="Film">
-                      <img src="https://tiennghich.mobi/download-game-alien-shooter-2-full-crack/imager_10501.jpg" />
-                      <p>Game's name</p>
-                      <div className="price">
-                        <p>550.000</p>
-                        <span>-50%</span>
-                      </div>
-                    </div>
-                    <div className="Film">
-                      <img src="https://production-gameflipusercontent.fingershock.com/us-east-1:8a4e56ff-7064-4a07-bc91-a814d07d551d/f5539e50-eeb4-49f7-be9d-06297c4b866d/501ca246-5887-4f7d-af10-3871ba8e8174" />
-                    </div>
-                    <div className="Film">
-                      <img src="https://authstore.vn/wp-content/uploads/2022/01/New-Super-Mario-Bros.-U-Deluxe1.jpg" />
-                      <p>Game's name</p>
-                      <div className="price">
-                        <p>550.000</p>
-                        <span>-50%</span>
-                      </div>
-                    </div>
-                    <div className="Film">
-                      <img src="https://upload.wikimedia.org/wikipedia/vi/2/2b/FNAF3Artwork.png" />
-                    </div>
-                    <div className="Film">
-                      <img src="https://images-na.ssl-images-amazon.com/images/I/41ICHsXkTvL.jpg" />
-                    </div>
+                  </div>
+                  )
+                }) }
+                   
+
+                   
                 </Carousel>
         </div>
        {/*  <div className="Space">
@@ -117,82 +176,40 @@ const Sales = () => {
         </div>
 
         <div className="Sale-Product">
-                <Carousel responsive={responsive}>
-                    <div className="Film">
-                      <img src="https://thichlaviet.com/wp-content/uploads/2019/06/game-Megaman-X9.jpg" />
-                      <p>Game's name</p>
-                      <div className="price">
-                        <p>550.000</p>
-                        <span>-50%</span>
-                      </div>
+        <Carousel responsive={responsive}>
+                {achis.map(function (achi) {
+                  return (
+                    <div className="Film" key={achi._id}>
+                    <img src={achi.image} />
+                    <p>{achi.name}</p>
+                    <div className="price">
+                      <p>{achi.price} $</p>
+                      <span>-{achi.salerate}</span>
                     </div>
-                    <div className="Film">
-                      <img src="https://tiennghich.mobi/download-game-alien-shooter-2-full-crack/imager_10501.jpg" />
-                      <p>Game's name</p>
-                      <div className="price">
-                        <p>550.000</p>
-                        <span>-50%</span>
-                      </div>
-                    </div>
-                    <div className="Film">
-                      <img src="https://production-gameflipusercontent.fingershock.com/us-east-1:8a4e56ff-7064-4a07-bc91-a814d07d551d/f5539e50-eeb4-49f7-be9d-06297c4b866d/501ca246-5887-4f7d-af10-3871ba8e8174" />
-                    </div>
-                    <div className="Film">
-                      <img src="https://authstore.vn/wp-content/uploads/2022/01/New-Super-Mario-Bros.-U-Deluxe1.jpg" />
-                      <p>Game's name</p>
-                      <div className="price">
-                        <p>550.000</p>
-                        <span>-50%</span>
-                      </div>
-                    </div>
-                    <div className="Film">
-                      <img src="https://upload.wikimedia.org/wikipedia/vi/2/2b/FNAF3Artwork.png" />
-                    </div>
-                    <div className="Film">
-                      <img src="https://images-na.ssl-images-amazon.com/images/I/41ICHsXkTvL.jpg" />
-                    </div>
-                </Carousel>
+                  </div>
+                  )
+                }) }
+        </Carousel>
         </div>
 
         <div className="More-Info-Link">
             <a href="">Editor's Picks</a>
         </div>
         <div className="Sale-Product">
-                <Carousel responsive={responsive}>
-                    <div className="Film">
-                      <img src="https://thichlaviet.com/wp-content/uploads/2019/06/game-Megaman-X9.jpg" />
-                      <p>Game's name</p>
-                      <div className="price">
-                        <p>550.000</p>
-                        <span>-50%</span>
-                      </div>
+        <Carousel responsive={responsive}>
+                {editor.map(function (edi) {
+                  return (
+                    <div className="Film" key={edi._id}>
+                    <img src={edi.image} />
+                    <p>{edi.name}</p>
+                    <div className="price">
+                      <p>{edi.price} $</p>
+                      <span>-{edi.salerate}</span>
                     </div>
-                    <div className="Film">
-                      <img src="https://tiennghich.mobi/download-game-alien-shooter-2-full-crack/imager_10501.jpg" />
-                      <p>Game's name</p>
-                      <div className="price">
-                        <p>550.000</p>
-                        <span>-50%</span>
-                      </div>
-                    </div>
-                    <div className="Film">
-                      <img src="https://production-gameflipusercontent.fingershock.com/us-east-1:8a4e56ff-7064-4a07-bc91-a814d07d551d/f5539e50-eeb4-49f7-be9d-06297c4b866d/501ca246-5887-4f7d-af10-3871ba8e8174" />
-                    </div>
-                    <div className="Film">
-                      <img src="https://authstore.vn/wp-content/uploads/2022/01/New-Super-Mario-Bros.-U-Deluxe1.jpg" />
-                      <p>Game's name</p>
-                      <div className="price">
-                        <p>550.000</p>
-                        <span>-50%</span>
-                      </div>
-                    </div>
-                    <div className="Film">
-                      <img src="https://upload.wikimedia.org/wikipedia/vi/2/2b/FNAF3Artwork.png" />
-                    </div>
-                    <div className="Film">
-                      <img src="https://images-na.ssl-images-amazon.com/images/I/41ICHsXkTvL.jpg" />
-                    </div>
-                </Carousel>
+                  </div>
+                  )
+                }) }
+        </Carousel>
         </div>
 
 
@@ -221,39 +238,18 @@ const Sales = () => {
         </div>
         <div className="Sale-Product">
                 <Carousel responsive={responsive}>
-                    <div className="Film">
-                      <img src="https://thichlaviet.com/wp-content/uploads/2019/06/game-Megaman-X9.jpg" />
-                      <p>Game's name</p>
-                      <div className="price">
-                        <p>550.000</p>
-                        <span>-50%</span>
-                      </div>
+                {updates.map(function (update) {
+                  return (
+                    <div className="Film" key={update._id}>
+                    <img src={update.image} />
+                    <p>{update.name}</p>
+                    <div className="price">
+                      <p>{update.price} $</p>
+                      <span>-{update.salerate}</span>
                     </div>
-                    <div className="Film">
-                      <img src="https://tiennghich.mobi/download-game-alien-shooter-2-full-crack/imager_10501.jpg" />
-                      <p>Game's name</p>
-                      <div className="price">
-                        <p>550.000</p>
-                        <span>-50%</span>
-                      </div>
-                    </div>
-                    <div className="Film">
-                      <img src="https://production-gameflipusercontent.fingershock.com/us-east-1:8a4e56ff-7064-4a07-bc91-a814d07d551d/f5539e50-eeb4-49f7-be9d-06297c4b866d/501ca246-5887-4f7d-af10-3871ba8e8174" />
-                    </div>
-                    <div className="Film">
-                      <img src="https://authstore.vn/wp-content/uploads/2022/01/New-Super-Mario-Bros.-U-Deluxe1.jpg" />
-                      <p>Game's name</p>
-                      <div className="price">
-                        <p>550.000</p>
-                        <span>-50%</span>
-                      </div>
-                    </div>
-                    <div className="Film">
-                      <img src="https://upload.wikimedia.org/wikipedia/vi/2/2b/FNAF3Artwork.png" />
-                    </div>
-                    <div className="Film">
-                      <img src="https://images-na.ssl-images-amazon.com/images/I/41ICHsXkTvL.jpg" />
-                    </div>
+                  </div>
+                  )
+                }) }
                 </Carousel>
         </div>
 
@@ -263,39 +259,18 @@ const Sales = () => {
         </div>
         <div className="Sale-Product">
                 <Carousel responsive={responsive}>
-                    <div className="Film">
-                      <img src="https://thichlaviet.com/wp-content/uploads/2019/06/game-Megaman-X9.jpg" />
-                      <p>Game's name</p>
-                      <div className="price">
-                        <p>550.000</p>
-                        <span>-50%</span>
-                      </div>
+                {populars.map(function (popular) {
+                  return (
+                    <div className="Film" key={popular._id}>
+                    <img src={popular.image} />
+                    <p>{popular.name}</p>
+                    <div className="price">
+                      <p>{popular.price} $</p>
+                      <span>-{popular.salerate}</span>
                     </div>
-                    <div className="Film">
-                      <img src="https://tiennghich.mobi/download-game-alien-shooter-2-full-crack/imager_10501.jpg" />
-                      <p>Game's name</p>
-                      <div className="price">
-                        <p>550.000</p>
-                        <span>-50%</span>
-                      </div>
-                    </div>
-                    <div className="Film">
-                      <img src="https://production-gameflipusercontent.fingershock.com/us-east-1:8a4e56ff-7064-4a07-bc91-a814d07d551d/f5539e50-eeb4-49f7-be9d-06297c4b866d/501ca246-5887-4f7d-af10-3871ba8e8174" />
-                    </div>
-                    <div className="Film">
-                      <img src="https://authstore.vn/wp-content/uploads/2022/01/New-Super-Mario-Bros.-U-Deluxe1.jpg" />
-                      <p>Game's name</p>
-                      <div className="price">
-                        <p>550.000</p>
-                        <span>-50%</span>
-                      </div>
-                    </div>
-                    <div className="Film">
-                      <img src="https://upload.wikimedia.org/wikipedia/vi/2/2b/FNAF3Artwork.png" />
-                    </div>
-                    <div className="Film">
-                      <img src="https://images-na.ssl-images-amazon.com/images/I/41ICHsXkTvL.jpg" />
-                    </div>
+                  </div>
+                  )
+                }) }
                 </Carousel>
         </div>
 
@@ -305,39 +280,18 @@ const Sales = () => {
         </div>
         <div className="Sale-Product">
                 <Carousel responsive={responsive}>
-                    <div className="Film">
-                      <img src="https://thichlaviet.com/wp-content/uploads/2019/06/game-Megaman-X9.jpg" />
-                      <p>Game's name</p>
-                      <div className="price">
-                        <p>550.000</p>
-                        <span>-50%</span>
-                      </div>
+                {newgames.map(function (newgame) {
+                  return (
+                    <div className="Film" key={newgame._id}>
+                    <img src={newgame.image} />
+                    <p>{newgame.name}</p>
+                    <div className="price">
+                      <p>{newgame.price} $</p>
+                      <span>-{newgame.salerate}</span>
                     </div>
-                    <div className="Film">
-                      <img src="https://tiennghich.mobi/download-game-alien-shooter-2-full-crack/imager_10501.jpg" />
-                      <p>Game's name</p>
-                      <div className="price">
-                        <p>550.000</p>
-                        <span>-50%</span>
-                      </div>
-                    </div>
-                    <div className="Film">
-                      <img src="https://production-gameflipusercontent.fingershock.com/us-east-1:8a4e56ff-7064-4a07-bc91-a814d07d551d/f5539e50-eeb4-49f7-be9d-06297c4b866d/501ca246-5887-4f7d-af10-3871ba8e8174" />
-                    </div>
-                    <div className="Film">
-                      <img src="https://authstore.vn/wp-content/uploads/2022/01/New-Super-Mario-Bros.-U-Deluxe1.jpg" />
-                      <p>Game's name</p>
-                      <div className="price">
-                        <p>550.000</p>
-                        <span>-50%</span>
-                      </div>
-                    </div>
-                    <div className="Film">
-                      <img src="https://upload.wikimedia.org/wikipedia/vi/2/2b/FNAF3Artwork.png" />
-                    </div>
-                    <div className="Film">
-                      <img src="https://images-na.ssl-images-amazon.com/images/I/41ICHsXkTvL.jpg" />
-                    </div>
+                  </div>
+                  )
+                }) }
                 </Carousel>
         </div>
 
