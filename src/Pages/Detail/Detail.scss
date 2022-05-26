@@ -5,7 +5,6 @@
 
 .Game-Detail-Container {
     background-color: rgb(18, 18, 18);
-    height: 1000px;
     width: 100%;
     .Detail-Content {
         width: 70%;
@@ -14,7 +13,7 @@
         .Game-Detail-Image {
             margin-top: 20px;
             height: 400px;
-            width: 300px;
+            width: 60%;
             img {
                 height: 100%;
                 width: 100%;
@@ -84,5 +83,89 @@
             margin-top: 50px;
             color: rgba(255, 255, 255, 0.464);
         }
+        h4 {
+            color: white;
+        }
     }
+    .Sale-Product-Detail {
+        margin: 20px auto 0px;
+        width: 70%;
+        p {
+            color: silver;
+            font-size: 25px;
+        }
+        .Content-Card {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            .Card {
+                width: 32%;
+                box-shadow: 0 0 5px white;
+                margin: 5px;
+                .Img-Card {
+                    width: 100%;
+                   img {
+                       width: 100%;
+                       height: 350px;
+                   }
+                }
+                .Text {
+                    padding: 5px;
+                    color: white;
+                    .Price {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                }
+            }
+        }
+    }
+
+    
+}
+
+@media only screen and (max-width: 740px){
+    .Game-Detail-Container {
+        padding-bottom: 50px;
+        
+        .Detail-Content {
+            flex-direction: column;
+            .Game-Detail-Image {
+                width: 100%;
+            }
+            .Game-Info {
+                margin-left: 0px;
+            }
+        }
+        .Describe {
+            display: none;
+        }
+        .Sale-Product-Detail {
+            display: none;
+        }
+    }
+	
+}
+/*Tablet:width>=740px and width<1024px*/
+@media only screen and (min-width: 740px) and (max-width: 1024px){
+    .Game-Detail-Container {
+        h1 {
+            margin-left: 5%;
+        }
+        .Detail-Content {
+            width: 90%;
+        }
+        .Describe {
+            width: 90%;
+        }
+        .Sale-Product-Detail {
+            width: 100%;
+        }
+    }
+    
+}
+
+@media only screen and (min-width: 1024px) {
+   
 }
