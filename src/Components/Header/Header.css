@@ -23,21 +23,26 @@
     width: 100%;
 }
 
-.Big-Content .Menu-List {
+.Big-Content .Menu_List {
     /* background-color: white; */
     width: 75%;
     padding-left: 20px;
 }
 
-.Big-Content .Menu-List ul li {
+.Big-Content .Menu_List ul .nav__item {
     display: inline-block;
     list-style: none;
     padding: 15px;
-    color: rgb(164, 160, 160);
+    color: white;
     cursor: pointer;
 }
 
-.Big-Content .Menu-List ul li:hover {
+.Big-Content .Menu_List ul .nav__item a {
+   text-decoration: none;
+   color: white;
+}
+
+.Big-Content .Menu_List ul li:hover {
     border-bottom: blue solid 7px;
     color: white;
 }
