@@ -4,6 +4,7 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 
 import Home  from '../Pages/Home/Home';
 import Store  from '../Pages/Store/Store';
+import Detail from '../Pages/Detail/Detail'
 
 
 const Routers = () => {
@@ -12,7 +13,7 @@ const Routers = () => {
       <Route path='/' element={<Navigate to='home' />} />
       <Route path='/home' element={<Home/>} />
       <Route path='/store' element={<Store />} />
-      {/* <Route path='/market/:id' element={<NftDetails />} /> */}
+      <Route path='/home/:id' element={<Detail />} />
     </Routes>
   )
 }

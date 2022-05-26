@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import './Home.css';
 import './Sale.scss';
+import {Link} from 'react-router-dom'
 import ImageGallery from 'react-image-gallery';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -165,14 +166,16 @@ const Store = () => {
                 <Carousel responsive={responsive}>
                 {sales.map(function (sale) {
                   return (
-                    <div className="Film" key={sale._id}>
-                    <img src={sale.image} />
-                    <p>{sale.name}</p>
-                    <div className="price">
-                      <p>{sale.price} $</p>
-                      <span>-{sale.salerate}</span>
-                    </div>
-                  </div>
+                   <Link to={`/home/${sale._id}`}>
+                      <div className="Film" key={sale._id}>
+                        <img src={sale.image} />
+                        <p>{sale.name}</p>
+                        <div className="price">
+                          <p>{sale.price} $</p>
+                          <span>-{sale.salerate}</span>
+                        </div>
+                      </div>
+                   </Link>
                   )
                 }) }
                    
