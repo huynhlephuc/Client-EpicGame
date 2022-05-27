@@ -24,7 +24,6 @@ const Detail = () => {
                 return e.category.name === gameDetail[0].category.name;
             });
             
-            
             setGame(gameDetail[0]);
             setRelate(gameRelate);
         }
@@ -78,12 +77,10 @@ const Detail = () => {
                     <button className="Btn-Wish">ADD TO WISHLIST</button>
                 </div>
             </div>
-           {/*  <div className="Describe">
-                <h4>Catelory: {game.category.name}</h4>
-                
-                <p>Tokyo is overrun by deadly supernatural forces, perpetrated by a dangerous occultist, causing Tokyo’s population to vanish in an instant. Ally with a powerful spectral entity on their quest for vengeance and master a powerful arsenal of abilities to unravel the dark truth behind the disappearance as you FACE THE UNKNOWN in Ghostwire: Tokyo.
-                </p>
-            </div> */}
+            <div className="Describe">
+               <h4>Face the unknown, uncover the truth and save the city</h4>
+               <p>Tokyo is overrun by deadly supernatural forces, perpetrated by a dangerous occultist, causing Tokyo’s population to vanish in an instant. Ally with a powerful spectral entity on their quest for vengeance and master a powerful arsenal of abilities to unravel the dark truth behind the disappearance as you FACE THE UNKNOWN in Ghostwire: Tokyo.</p>
+            </div>
             <div className="Sale-Product-Detail">
                     <p>Relative Game:</p>
                     <div className="Content-Card">

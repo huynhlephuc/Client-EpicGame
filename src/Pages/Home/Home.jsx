@@ -172,7 +172,8 @@ const Store = () => {
                         <p>{sale.name}</p>
                         <div className="price">
                           <p>{sale.price} $</p>
-                          <span>-{sale.salerate}</span>
+                          {sale.salerate !== '0%' &&  <span>-{sale.salerate}</span>}
+                         
                         </div>
                       </div>
                    </Link>

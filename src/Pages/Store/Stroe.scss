@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.All-Game-Container {
+    width: 100%;
+    display: flex;
+    background-color: rgb(18, 18, 18);
+    .Margin-Content {
+        width: 75%;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        .All-Game {
+            width: 75%;
+            
+        }
+        .Filter {
+            width: 25%;
+            p {
+                padding-top: 10px;
+                font-size: 20px;
+                color: white;
+                }
+           .Input-Filter {
+               position: relative;
+               span {
+                   position: absolute;
+                   bottom: 11px;
+                   left: 20px;
+                   font-size: 20px;
+                   color: white;
+               }
+                input {
+                    font-size: 15px;
+                    padding: 10px 20px 10px 50px;
+                    border-radius: 5px;
+                    background-color: rgb(18, 18, 18);
+                    margin-top: 10px;
+                    width: 70%;
+                }
+           }
+            .Filter-List {
+                width: 100%;
+            }
+            ul {
+                li {
+                    list-style-type: none;
+                    padding: 20px;
+                    color: silver;
+                    &:hover {
+                        color: white;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .SortBy {
+            height:  60px;
+            width: 100%;
+            .Btn-Filter {
+                height: 80px;
+                width: 30%;
+                font-size: 30px;
+                #Box {
+                    background-color: rgb(18, 18, 18);
+                    color: white;
+                    padding: 10px;
+                    border: none;
+                    width: 100%;
+                }
+                
+            }
+        }
+        .Game-space {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            .One-Game {
+                width: 22%;
+                padding-right: 25px;
+                margin-bottom: 30px;
+                .Game-Content {
+                    height: 300px;
+                    width: 200px;
+                    img {
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+                .Game-Price {
+                    p {
+                        color: white;
+                        margin-top: 10px;
+                    }
+                   
+                }
+                .Price {
+                    display: flex;
+                    justify-content: space-between;
+                    p {
+                        color: white;
+                    }
+                    span {
+                        color: white;
+                        background-color: blue;
+                        border: 1px solid blue;
+                        border-radius: 5px;
+                        padding: 5px;
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+      
+    }
+    
+}
