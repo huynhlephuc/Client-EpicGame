@@ -1,7 +1,26 @@
-import React from 'react'
+import React, {useState , useEffect} from 'react'
+import axios from 'axios';
 import './Stroe.scss'
 
 const Store = () => {
+
+  const  [games, setGames] = useState([]);
+
+  useEffect( () => {
+    const getApi = async () => {
+        const getGames = await axios.get("https://server-epic-game.herokuapp.com/games");
+
+        setGames(getGames.data)
+    }
+    getApi();
+
+    /* console.log('data game',games.data) */
+
+    
+  },[])
+
+  console.log(games)
+
   return (
     <>
         <div className="All-Game-Container">
@@ -18,91 +37,27 @@ const Store = () => {
                   
                     <div className="Game-space">
                       {/* one game */}
-                        <div className="One-Game">
-                            <div className="Game-Content">
-                                <img src="https://upload.wikimedia.org/wikipedia/vi/2/2b/FNAF3Artwork.png" alt="" />
-                            </div>
-                            <div className="Game-Price">
-                              <p>Name</p>
-                            </div>
-                            <div className="Price">
-                              <p>25$</p>
-                              <span>- 25%</span>
-                            </div>
-                        </div>
+                       {
+                         games.map(function (game) {
+                            return (
+                              <div className="One-Game">
+                                  <div className="Game-Content">
+                                      <img src={game.image} alt="" />
+                                  </div>
+                                  <div className="Game-Price">
+                                    <p>{game.name}</p>
+                                  </div>
+                                  <div className="Price">
+                                    <p>{game.price} $</p>
+                                    <span>-{game.salerate}</span>
+                                  </div>
+                              </div>
+                            )
+                         })
+                       }
                         {/* one game */}
 
-                         {/* one game */}
-                         <div className="One-Game">
-                            <div className="Game-Content">
-                                <img src="https://upload.wikimedia.org/wikipedia/vi/2/2b/FNAF3Artwork.png" alt="" />
-                            </div>
-                            <div className="Game-Price">
-                              <p>Name</p>
-                            </div>
-                            <div className="Price">
-                              <p>25$</p>
-                              <span>- 25%</span>
-                            </div>
-                        </div>
-                        {/* one game */}
-
-                        {/* one game */}
-                        <div className="One-Game">
-                            <div className="Game-Content">
-                                <img src="https://upload.wikimedia.org/wikipedia/vi/2/2b/FNAF3Artwork.png" alt="" />
-                            </div>
-                            <div className="Game-Price">
-                              <p>Name</p>
-                            </div>
-                            <div className="Price">
-                              <p>25$</p>
-                              <span>- 25%</span>
-                            </div>
-                        </div>
-                        {/* one game */}
-                        {/* one game */}
-                        <div className="One-Game">
-                            <div className="Game-Content">
-                                <img src="https://upload.wikimedia.org/wikipedia/vi/2/2b/FNAF3Artwork.png" alt="" />
-                            </div>
-                            <div className="Game-Price">
-                              <p>Name</p>
-                            </div>
-                            <div className="Price">
-                              <p>25$</p>
-                              <span>- 25%</span>
-                            </div>
-                        </div>
-                        {/* one game */}
-                        {/* one game */}
-                        <div className="One-Game">
-                            <div className="Game-Content">
-                                <img src="https://upload.wikimedia.org/wikipedia/vi/2/2b/FNAF3Artwork.png" alt="" />
-                            </div>
-                            <div className="Game-Price">
-                              <p>Name</p>
-                            </div>
-                            <div className="Price">
-                              <p>25$</p>
-                              <span>- 25%</span>
-                            </div>
-                        </div>
-                        {/* one game */}
-                        {/* one game */}
-                        <div className="One-Game">
-                            <div className="Game-Content">
-                                <img src="https://upload.wikimedia.org/wikipedia/vi/2/2b/FNAF3Artwork.png" alt="" />
-                            </div>
-                            <div className="Game-Price">
-                              <p>Name</p>
-                            </div>
-                            <div className="Price">
-                              <p>25$</p>
-                              <span>- 25%</span>
-                            </div>
-                        </div>
-                        {/* one game */}
+                         
                     </div>
                 </div>
                 <div className="Filter">
